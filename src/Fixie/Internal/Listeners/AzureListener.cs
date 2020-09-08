@@ -148,7 +148,7 @@
 
             var response = await sendCreateRun(client, HttpMethod.Post, $"{runsUri}?api-version={AzureDevOpsRestApiVersion}", createRun);
 
-            runUrl = Deserialize<TestRun>(response).url;
+            runUrl = Deserialize<TestRun>(response)?.url;
         }
 
         public async Task Handle(CaseSkipped message)

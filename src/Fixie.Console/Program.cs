@@ -148,13 +148,13 @@
             arguments.AddRange(customArguments);
 
             var workingDirectory = Path.Combine(
-                new FileInfo(testProject).Directory.FullName,
+                new FileInfo(testProject).Directory!.FullName,
                 outputPath);
 
             return Run("dotnet", workingDirectory, arguments.ToArray(),
                 options.Report == null
                     ? null
-                    : new Dictionary<string, string>
+                    : new Dictionary<string, string?>
                     {
                         {"FIXIE:REPORT", options.Report}
                     });
